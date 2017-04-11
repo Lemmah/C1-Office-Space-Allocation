@@ -19,13 +19,3 @@ class Fellow(Person):
         self.second_name = second_name
         self.person_type = person_type
         self.living_space = living_space
-        self.availble_living_spaces = ['Python', 'Ruby', 'JavaScript', 'Java']
-        self.allocated_living_space = random.choice(
-            self.availble_living_spaces)
-
-    def allocate_living_space(self):
-        if self.living_space is None:
-            pass
-        else:
-            return '{} has been allocated the livingplace {}.'.format(
-                self.first_name, self.allocated_living_space)

@@ -1,4 +1,5 @@
 import random
+from class_dojo import available_offices
 '''
 
 This is the Person class, parent class to the Fellow and Staff class.
@@ -17,8 +18,7 @@ class Person:
         self.first_name = first_name
         self.last_name = last_name
         self.office_space = office_space
-        self.available_offices = ['Lemmah', 'Orange', 'Blue', 'Red']
-
+        self.available_offices = Dojo.available_offices
     def full_name(self):
         if self.first_name is not None:
             if self.last_name is None:
@@ -26,11 +26,7 @@ class Person:
             else:
                 return '{} {}'.format(self.first_name, self.last_name)
 
-    def new_person(self):
-        return '{} {} has been successfully added.'.format(
-            self.person_type, self.full_name())
-
-    def allocate_office(self):
+    def allocated_office(self):
         if self.office_space is None:
             return '{} has been allocated the office {}.'.format(
                 self.first_name,
