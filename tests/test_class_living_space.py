@@ -20,6 +20,6 @@ class TestLivingSpace(unittest.TestCase):
         ), 'Room White already exists.', 'Class should inherit Room.')  # test1
 
     def test_new_room(self):
-        self.assertEqual(Room('Office', 'Amber').add_new_room(),
+        self.assertEqual(Room('Office', 'Amber').add_new_room()[0],
                          'An Office called Amber has been successfully created.',
-                         'Class should behave like room.') # test2
+                         'Class should behave like room.')  # test2
