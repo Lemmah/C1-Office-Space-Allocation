@@ -1,5 +1,5 @@
 # command to run tests
-script: py.test
+script: pytest tests/
 
 # command to install requirments
 install: pip install --user -r requirements.txt
