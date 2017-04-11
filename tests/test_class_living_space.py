@@ -6,7 +6,9 @@ from scripts.class_living_space import *
 
 '''
 
-Class living space inherits the class room
+Class living space inherits the class room.
+I expect it to have the same behavoirs as the parent class.
+It inherits all the methods and implements them.
 
 '''
 
@@ -26,4 +28,4 @@ class TestLivingSpace(unittest.TestCase):
 
     def test_count_rooms(self):
         self.assertEqual(Room('Office', 'Blue').get_all_rooms(), 4,
-                         'Should be able to count all the rooms.')
+                         'Should be able to count all the rooms.') # test3
