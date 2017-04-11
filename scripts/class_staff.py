@@ -1,4 +1,4 @@
-from scripts.class_person import *
+from scripts.class_person import Person
 
 
 class Staff(Person):

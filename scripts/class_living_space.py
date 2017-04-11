@@ -1,4 +1,4 @@
-from scripts.class_room import *
+from scripts.class_room import Room
 
 
 class LivingSpace(Room):

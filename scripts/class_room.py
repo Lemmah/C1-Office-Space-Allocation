@@ -4,6 +4,8 @@ This is the parent class for subclasses: LivingSpace and Office
 The subclasses will inherit the available methods
 
 """
+
+
 class Room:
     def __init__(self, room_type, room_name, occupants=0, room_capacity=0):
         self.room_type = room_type
