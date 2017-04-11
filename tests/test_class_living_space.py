@@ -19,7 +19,7 @@ class TestLivingSpace(unittest.TestCase):
     # test3: test that class living space can count all rooms
     def test_add_existing_room(self):
         self.assertEqual(Room('Office', 'White').add_new_room(
-        ), 'Room White already exists.', 'Class should inherit Room.')  # test1
+        )[0], 'Room White already exists.', 'Class should inherit Room.')  # test1
 
     def test_new_room(self):
         self.assertEqual(Room('Office', 'Amber').add_new_room()[0],
