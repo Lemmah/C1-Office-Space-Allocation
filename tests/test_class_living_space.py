@@ -23,3 +23,7 @@ class TestLivingSpace(unittest.TestCase):
         self.assertEqual(Room('Office', 'Amber').add_new_room()[0],
                          'An Office called Amber has been successfully created.',
                          'Class should behave like room.')  # test2
+
+    def test_count_rooms(self):
+        self.assertEqual(Room('Office', 'Blue').get_all_rooms(), 4,
+                         'Should be able to count all the rooms.')
