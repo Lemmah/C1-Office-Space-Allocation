@@ -23,3 +23,6 @@ class TestClassPerson(unittest.TestCase):
     def test_add_new_person(self):
         self.assertEqual(Person('Fellow', 'Joshua', 'Ondieki').new_person(
         ), 'Fellow Joshua Ondieki has been successfully added.')  # test3
+
+if __name__ == '__main__':
+	unittest.main()
