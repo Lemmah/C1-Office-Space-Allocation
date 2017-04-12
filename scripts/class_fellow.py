@@ -1,4 +1,5 @@
 from scripts.class_person import Person
+import random
 '''
 
 This fellow class inherits from Person.
@@ -22,10 +23,13 @@ class Fellow(Person):
         self.availble_living_spaces = ['Python', 'Ruby', 'JavaScript', 'Java']
         self.allocated_living_space = random.choice(
             self.availble_living_spaces)
+        self.allocations_dict = {}
 
     def allocate_living_space(self):
         if self.living_space is None:
             pass
         else:
             return '{} has been allocated the livingplace {}.'.format(
-                self.first_name, self.allocated_living_space)
+                self.first_name, self.allocated_living_space), '{} {}'.format(
+                self.first_name, self.second_name), self.allocated_living_space
+

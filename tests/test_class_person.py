@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 import unittest
-from scripts.class_person import *
+from scripts.class_person import Person
 
 
 class TestClassPerson(unittest.TestCase):

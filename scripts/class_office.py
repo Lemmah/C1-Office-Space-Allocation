@@ -10,6 +10,7 @@ I'm yet to get anything I can do uniquely in this class.
 
 '''
 
+
 class Office(Room):
     def __init__(self, room_type, room_name):
         super().__init__(room_type, room_name)

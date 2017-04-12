@@ -5,6 +5,13 @@ This commandline interface uses docopt with the built in cmd module.
 Usage:
     mra add_person <first_name> <last_name> <person_type> [<wants_accomodation>]
     mra create_room <room_type> <room_name>
+    mra print_room <room_name>
+    mra reallocate_person <name> <new_room>
+    mra load_people <filename>
+    mra print_allocations [<filename>]
+    mra print_unallocated [<filename>]
+    mra load_state [<filename>]
+    mra save_state [<db_name>]
     mra (-i | --interactive)
     mra (-h | --help)
 Options:
@@ -72,8 +79,12 @@ class MyInteractive (cmd.Cmd):
 
         if person_type.upper() == 'FELLOW' or person_type.upper() == 'STAFF':
             print('\n' + '*' * 25 + ' Success ' + '*' * 26)
-            print(Person(person_type, first_name, last_name).new_person())
-            print(Person(person_type, first_name, last_name).allocate_office())
+            new_person = Person(person_type, first_name,
+                                last_name).new_person()
+            new_person_office = Person(
+                person_type, first_name, last_name).allocate_office()
+            print(new_person)
+            print(new_person_office)
         else:
             print('\n' + '*' * 26 + ' ERROR! ' + '*' * 26)
             print(
@@ -81,7 +92,8 @@ class MyInteractive (cmd.Cmd):
         if wants_accomodation and person_type.upper() == 'FELLOW':
             print(Fellow(
                 first_name, last_name,
-                person_type, wants_accomodation).allocate_living_space())
+                person_type, wants_accomodation).allocate_living_space()[0])
+
         elif wants_accomodation and person_type.upper() == 'STAFF':
             print('\n' + '*' * 26 + ' ERROR! ' + '*' * 26)
             print(
