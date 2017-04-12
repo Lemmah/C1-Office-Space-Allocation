@@ -8,8 +8,9 @@ It calls instances of other classes and
 mainly interacts with the docopt user interface.
 
 '''
-from class_office import Office
-from class_living_space import LivingSpace
+from scripts.class_office import Office
+from scripts.class_living_space import LivingSpace
+from scripts.class_room import Room
 
 
 class Dojo:
@@ -24,7 +25,18 @@ class Dojo:
         self.unallocated_persons = []
 
     def create_room(self, room_name, room_type):
-        pass
+        if room_name not in self.all_rooms:
+            if room_type.lower() == 'office':
+                self.all_rooms.append(room_name)
+                self.office_rooms.append(room_name)
+                room_instance = Office(room_type, room_name).room_details()
+                return 'An office called {} has been successfully created.'.format(room_instance[1])
+            else:
+                room_instance = LivingSpace(
+                    room_type, room_name).room_details()
+                return 'A livingspace called {} has been successfully created.'.format(room_instance[1])
+        else:
+            return 'The room {} already exists.'.format(room_name)
 
     def add_person(self, person_name, person_type, wants_accomodation='N'):
         pass
