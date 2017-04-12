@@ -17,12 +17,12 @@ Options:
 import sys
 import cmd
 from docopt import docopt, DocoptExit
-from scripts.class_dojo import *
-from scripts.class_fellow import *
-from scripts.class_living_space import *
-from scripts.class_person import *
-from scripts.class_room import *
-from scripts.class_staff import *
+from scripts.class_dojo import Dojo
+from scripts.class_fellow import Fellow
+from scripts.class_living_space import LivingSpace
+from scripts.class_person import Person
+from scripts.class_room import Room
+from scripts.class_staff import Staff
 
 
 def docopt_cmd(func):

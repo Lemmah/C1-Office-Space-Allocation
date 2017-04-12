@@ -1,4 +1,4 @@
-from scripts.class_person import *
+from scripts.class_person import Person
 '''
 
 This fellow class inherits from Person.
