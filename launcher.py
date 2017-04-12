@@ -4,7 +4,7 @@ This commandline interface uses docopt with the built in cmd module.
 
 Usage:
     mra add_person <first_name> <last_name> <person_type> [<wants_accomodation>]
-    mra create_room <room_type> <room_name>
+    mra create_room <room_type> <room_name>...
     mra (-i | --interactive)
     mra (-h | --help)
 Options:
@@ -18,6 +18,8 @@ import sys
 import cmd
 from docopt import docopt, DocoptExit
 from scripts.class_dojo import Dojo
+
+dojo_instance = Dojo()
 
 
 def docopt_cmd(func):
@@ -87,18 +89,19 @@ class MyInteractive (cmd.Cmd):
     @docopt_cmd
     def do_create_room(self, args):
         """Usage: create_room <room_type> <room_name>..."""
-        print('This will call the function create_room.')
-        # room_type = args['<room_type>']
-        # print('\n' + '*' * 25 + ' Success ' + '*' * 26)
-        # for item in args['<room_name>']:
-        #     room_name = item
-        #     if room_type.upper() == 'LIVINGSPACE' or room_type.upper() == 'OFFICE':
-        #         print(Room(room_type, room_name).add_new_room()[0])
-        #     else:
-        #         print('\n' + '*' * 26 + ' ERROR! ' + '*' * 26)
-        #         print('<room_type> type must either be Office or LivingSpace')
+        print('\n' + '*' * 25 + ' Success ' + '*' * 26)
 
-        # print('\n' + '*' * 60)
+        room_type = args['<room_type>']
+        for item in args['<room_name>']:
+            room_name = item
+            if room_type.upper() == 'LIVINGSPACE' or room_type.upper() == 'OFFICE':
+                room_created = dojo_instance.create_room(room_name, room_type)
+                print(room_created)
+            else:
+                print('\n' + '*' * 26 + ' ERROR! ' + '*' * 26)
+                print('<room_type> type must either be Office or LivingSpace')
+
+        print('\n' + '*' * 60)
 
     def do_quit(self, args):
         """Quits out of Interactive Mode."""
