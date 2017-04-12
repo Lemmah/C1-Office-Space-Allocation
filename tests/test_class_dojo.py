@@ -11,9 +11,9 @@ class TestClassDojo(unittest.TestCase):
     # test2: reject room addition if name already exists...
 
     def test_create_room_successfully(self):  # test1: done in example
-        room_class_instance = Dojo ()
+        room_class_instance = Dojo()
         initial_room_count = len(room_class_instance.all_rooms)
-        blue_office = room_class_instance.create_room(“Blue”, “office”)
+        blue_office = room_class_instance.create_room('Blue', 'office')
         self.assertTrue(blue_office)
         new_room_count = len(room_class_instance.all_rooms)
         self.assertEqual(new_room_count - initial_room_count, 1)
