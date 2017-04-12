@@ -1,4 +1,13 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 from class_person import Person
+'''
+
+This class inherits from the Person.
+It can get a Staff's full names.
+
+'''
 
 
 class Staff(Person):

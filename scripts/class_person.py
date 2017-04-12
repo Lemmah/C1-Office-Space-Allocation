@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 '''
 
 This is the Person class, parent class to the Fellow and Staff class.
