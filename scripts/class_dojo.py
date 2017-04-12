@@ -9,10 +9,23 @@ mainly interacts with the docopt user interface.
 
 
 class Dojo:
-    def create_room(self):
+    def __init__(self):
+        self.all_rooms = []
+        self.office_rooms = []
+        self.living_places = []
+        self.all_people = []
+        self.fellows = []
+        self.staff = []
+        self.allocated_persons = []
+        self.unallocated_persons = []
+
+    def create_room(self, room_name, room_type):
         pass
 
-    def add_person(self):
+    def add_person(self, person_name, person_type, wants_accomodation='N'):
+        pass
+
+    def check_capacity_full(self, room_name):
         pass
 
     def allocate_office(self):
@@ -21,14 +34,8 @@ class Dojo:
     def allocate_room(self):
         pass
 
-    def allocated_people(self):
+    def reallocate_person(self, person_name, new_room_name):
         pass
 
-    def unallocated_people(self):
-        pass
-
-    def reallocate_person(self):
-        pass
-
-    def load_people(self):
+    def print_room_members(self, room_name):
         pass
