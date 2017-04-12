@@ -3,7 +3,7 @@
 
 
 import unittest
-from scripts.class_dojo import *
+from scripts.class_dojo import Dojo
 
 
 class TestClassDojo(unittest.TestCase):
