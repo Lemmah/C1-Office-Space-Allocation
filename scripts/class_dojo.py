@@ -1,3 +1,10 @@
+from scripts.class_fellow import Fellow
+from scripts.class_living_space import LivingSpace
+from scripts.class_person import Person
+from scripts.class_room import Room
+from scripts.class_staff import Staff
+
+
 """
 
 This is the master of this game. The control class so to call it.
@@ -14,13 +21,19 @@ class Dojo:
     def add_person(self):
         pass
 
-    def print_allocations(self):
+    def allocate_office(self):
         pass
 
-    def print_unallocated(self):
+    def allocate_room(self):
         pass
 
-    def reallocate(self):
+    def allocated_people(self):
+        pass
+
+    def unallocated_people(self):
+        pass
+
+    def reallocate_person(self):
         pass
 
     def load_people(self):
