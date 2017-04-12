@@ -1,9 +1,3 @@
-from scripts.class_fellow import Fellow
-from scripts.class_living_space import LivingSpace
-from scripts.class_person import Person
-from scripts.class_room import Room
-from scripts.class_staff import Staff
-
 
 """
 

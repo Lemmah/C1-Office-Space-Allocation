@@ -1,5 +1,5 @@
 import random
-from scripts.class_dojo import available_offices
+from scripts.class_dojo import Dojo
 '''
 
 This is the Person class, parent class to the Fellow and Staff class.
