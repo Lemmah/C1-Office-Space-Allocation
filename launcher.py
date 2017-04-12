@@ -19,6 +19,7 @@ import cmd
 from docopt import docopt, DocoptExit
 from scripts.class_dojo import Dojo
 
+
 def docopt_cmd(func):
     """
     This decorator is used to simplify the try/except block and pass the result
