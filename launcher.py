@@ -62,42 +62,43 @@ class MyInteractive (cmd.Cmd):
     @docopt_cmd
     def do_add_person(self, args):
         """Usage: add_person <first_name> <last_name> <person_type> [<wants_accomodation>]"""
-        print('This will call the function add_person.')
         first_name = args['<first_name>']
         last_name = args['<last_name>']
         person_type = args['<person_type>']
         wants_accomodation = args['<wants_accomodation>']
 
         if person_type.upper() == 'FELLOW' or person_type.upper() == 'STAFF':
-            print('\n' + '*' * 25 + ' Success ' + '*' * 26)
+            print('\n' + '*' * 34 + '[ Success ]' + '*' * 35)
+            print('This will call the function add_person.')
         else:
-            print('\n' + '*' * 26 + ' ERROR! ' + '*' * 26)
+            print('\n' + '*' * 35 + '[ ERROR! ]' + '*' * 35)
             print(
                 'At the moment, we\'re working with either staff or fellows.\nPlease input a valid person_type.')
         if wants_accomodation and person_type.upper() == 'FELLOW':
             pass
         elif wants_accomodation and person_type.upper() == 'STAFF':
-            print('\n' + '*' * 26 + ' ERROR! ' + '*' * 26)
+            print('\n' + '*' * 35 + '[ ERROR! ]' + '*' * 35)
             print(
                 'OOPSIE! Accomodation is available to Fellows only.')
-        print('*' * 60)
+        print('\n' + '*' * 80)
 
     @docopt_cmd
     def do_create_room(self, args):
         """Usage: create_room <room_type> <room_name>..."""
-        print('\n' + '*' * 25 + ' Success ' + '*' * 26)
 
         room_type = args['<room_type>']
-        for item in args['<room_name>']:
-            room_name = item
-            if room_type.upper() == 'LIVINGSPACE' or room_type.upper() == 'OFFICE':
-                room_created = dojo_instance.create_room(room_name, room_type)
-                print(room_created)
-            else:
-                print('\n' + '*' * 26 + ' ERROR! ' + '*' * 26)
+        if room_type.upper() == 'LIVINGSPACE' or room_type.upper() == 'OFFICE':
+            print('\n' + '*' * 34 + '[ Success ]' + '*' * 35)
+            for item in args['<room_name>']:
+                    room_name = item
+                    room_created = dojo_instance.create_room(
+                        room_name, room_type)
+                    print('\t' + room_created)
+        else:
+                print('\n' + '*' * 35 + '[ ERROR! ]' + '*' * 35)
                 print('<room_type> type must either be Office or LivingSpace')
 
-        print('\n' + '*' * 60)
+        print('\n' + '*' * 80)
 
     def do_quit(self, args):
         """Quits out of Interactive Mode."""
