@@ -26,12 +26,12 @@ class Person:
             else:
                 return '{} {}'.format(self.first_name, self.last_name)
 
-    def allocated_office(self):
-        if self.office_space is None:
-            return '{} has been allocated the office {}.'.format(
-                self.first_name,
-                random.choice(self.available_offices))
-        else:
-            return '{} has been allocated the office {}.'.format(
-                self.first_name,
-                self.office_space)
+    # def allocated_office(self):
+    #     if self.office_space is None:
+    #         return '{} has been allocated the office {}.'.format(
+    #             self.first_name,
+    #             random.choice(self.available_offices))
+    #     else:
+    #         return '{} has been allocated the office {}.'.format(
+    #             self.first_name,
+    #             self.office_space)
