@@ -1,4 +1,4 @@
-from scripts.class_person import Person
+from class_person import Person
 
 
 class Staff(Person):
@@ -10,3 +10,7 @@ class Staff(Person):
         self.first_name = first_name
         self.second_name = second_name
         self.person_type = person_type
+
+    def fellow_details(self):
+        self.full_name = self.full_name()
+        return self.full_name

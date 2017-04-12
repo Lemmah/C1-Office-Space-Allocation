@@ -1,4 +1,4 @@
-from scripts.class_person import Person
+from class_person import Person
 '''
 
 This fellow class inherits from Person.
@@ -19,3 +19,8 @@ class Fellow(Person):
         self.second_name = second_name
         self.person_type = person_type
         self.living_space = living_space
+
+    def fellow_details(self):
+        self.full_name = self.full_name()
+        return self.full_name
+print(Fellow('James', 'Lemayian', 'Fellow', 'Blue').fellow_details())
