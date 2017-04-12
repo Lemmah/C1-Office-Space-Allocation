@@ -63,28 +63,24 @@ class MyInteractive (cmd.Cmd):
     def do_add_person(self, args):
         """Usage: add_person <first_name> <last_name> <person_type> [<wants_accomodation>]"""
         print('This will call the function add_person.')
-        # first_name = args['<first_name>']
-        # last_name = args['<last_name>']
-        # person_type = args['<person_type>']
-        # wants_accomodation = args['<wants_accomodation>']
+        first_name = args['<first_name>']
+        last_name = args['<last_name>']
+        person_type = args['<person_type>']
+        wants_accomodation = args['<wants_accomodation>']
 
-        # if person_type.upper() == 'FELLOW' or person_type.upper() == 'STAFF':
-        #     print('\n' + '*' * 25 + ' Success ' + '*' * 26)
-        #     print(Person(person_type, first_name, last_name).new_person())
-        #     print(Person(person_type, first_name, last_name).allocate_office())
-        # else:
-        #     print('\n' + '*' * 26 + ' ERROR! ' + '*' * 26)
-        #     print(
-        #         'At the moment, we\'re working with either staff or fellows.\nPlease input a valid person_type.')
-        # if wants_accomodation and person_type.upper() == 'FELLOW':
-        #     print(Fellow(
-        #         first_name, last_name,
-        #         person_type, wants_accomodation).allocate_living_space())
-        # elif wants_accomodation and person_type.upper() == 'STAFF':
-        #     print('\n' + '*' * 26 + ' ERROR! ' + '*' * 26)
-        #     print(
-        #         'OOPSIE! Accomodation is available to Fellows only.')
-        # print('*' * 60)
+        if person_type.upper() == 'FELLOW' or person_type.upper() == 'STAFF':
+            print('\n' + '*' * 25 + ' Success ' + '*' * 26)
+        else:
+            print('\n' + '*' * 26 + ' ERROR! ' + '*' * 26)
+            print(
+                'At the moment, we\'re working with either staff or fellows.\nPlease input a valid person_type.')
+        if wants_accomodation and person_type.upper() == 'FELLOW':
+            pass
+        elif wants_accomodation and person_type.upper() == 'STAFF':
+            print('\n' + '*' * 26 + ' ERROR! ' + '*' * 26)
+            print(
+                'OOPSIE! Accomodation is available to Fellows only.')
+        print('*' * 60)
 
     @docopt_cmd
     def do_create_room(self, args):
