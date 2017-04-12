@@ -13,11 +13,10 @@ both have to have office_space, name and are only either fellow or staff
 class Person:
     def __init__(
             self, first_name=None,
-            last_name=None, office_space=None):
+            last_name=None):
 
         self.first_name = first_name
         self.last_name = last_name
-        self.office_space = office_space
 
     # Giving back full name even when one name is specified, I just want to
     # inherit it.

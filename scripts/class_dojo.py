@@ -10,7 +10,6 @@ mainly interacts with the docopt user interface.
 '''
 from scripts.class_office import Office
 from scripts.class_living_space import LivingSpace
-from scripts.class_room import Room
 
 
 class Dojo:
@@ -38,7 +37,7 @@ class Dojo:
         else:
             return 'The room {} already exists.'.format(room_name)
 
-    def add_person(self, person_name, person_type, wants_accomodation='N'):
+    def add_person(self, first_name, last_name, person_type, wants_accomodation='N'):
         pass
 
     def check_capacity_full(self, room_name):

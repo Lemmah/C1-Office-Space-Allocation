@@ -14,14 +14,12 @@ since staff should not have living spaces.
 class Fellow(Person):
     def __init__(
             self, first_name,
-            second_name, person_type,
-            living_space=None):
+            second_name, person_type):
 
         super().__init__(first_name, second_name, person_type)
         self.first_name = first_name
         self.second_name = second_name
         self.person_type = person_type
-        self.living_space = living_space
 
     def fellow_details(self):
         self.full_name = self.full_name()
