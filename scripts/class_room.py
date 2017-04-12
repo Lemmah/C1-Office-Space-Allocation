@@ -21,4 +21,3 @@ class Room:
         else:
             self.room_capacity = 6
         return self.room_name, self.room_capacity
-print(Room('office', 'Red').room_capacity())

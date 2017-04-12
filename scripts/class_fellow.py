@@ -26,4 +26,3 @@ class Fellow(Person):
     def fellow_details(self):
         self.full_name = self.full_name()
         return self.full_name
-print(Fellow('James', 'Lemayian', 'Fellow', 'Blue').fellow_details())
