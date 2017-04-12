@@ -8,6 +8,8 @@ It calls instances of other classes and
 mainly interacts with the docopt user interface.
 
 '''
+from class_office import Office
+from class_living_space import LivingSpace
 
 
 class Dojo:
