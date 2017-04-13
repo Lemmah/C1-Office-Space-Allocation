@@ -1,5 +1,6 @@
 """
-This commandline interface uses docopt with the built in cmd module.
+This is the commandline interface for room allocation at the dojo. 
+
 Usage:
     mra add_person <first_name> <last_name> <person_type> [<wants_accomodation>]
     mra create_room <room_type> <room_name>...
@@ -55,6 +56,7 @@ class MyInteractive (cmd.Cmd):
     print('\n' + '*' * 32 + '[ WELCOME! ]' + '*' * 34 + '\n')
     print('\n' + '~' * 30 + '{ ANDELA KENYA }' + '~' * 32 + '\n')
     print('-' * 26 + '< MyRoomAllocator: Dojo >' + '-' * 27 + '\n')
+    print(__doc__)
     print('\n' + '*' * 78 + '\n')
 
     prompt = 'mra >>> '
@@ -116,11 +118,13 @@ class MyInteractive (cmd.Cmd):
             print('\n' + '*' * 35 + '[ ERROR! ]' + '*' * 35 + '\n')
             print('\t<room_type> type must either be Office or LivingSpace')
 
-        print('\n' + '*' * 80 + '\n')
+        print('\n' + '*' * 78 + '\n')
 
     def do_quit(self, args):
         """Quits out of Interactive Mode."""
+        print('\n' + '*' * 34 + '[ Quiting ]' + '*' * 35 + '\n')
         print('\n\tHope I made your work easier. Bye!\n')
+        print('\n' + '*' * 78 + '\n')
         exit()
 
 
