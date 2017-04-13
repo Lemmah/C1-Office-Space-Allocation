@@ -55,6 +55,10 @@ def docopt_cmd(func):
 
 
 class MyInteractive (cmd.Cmd):
+    print('\n' + '*' * 32 + '[ WELCOME! ]' + '*' * 34 + '\n')
+    print('\n' + '~' * 30 + '{ ANDELA KENYA }' + '~' * 32 + '\n')
+    print('-' * 26 + '< MyRoomAllocator: Dojo >' + '-' * 27 + '\n')
+    print('\n' + '*' * 78 + '\n')
 
     prompt = 'mra >>> '
     file = None
@@ -67,20 +71,37 @@ class MyInteractive (cmd.Cmd):
         person_type = args['<person_type>']
         wants_accomodation = args['<wants_accomodation>']
 
-        if person_type.upper() == 'FELLOW' or person_type.upper() == 'STAFF':
-            print('\n' + '*' * 34 + '[ Success ]' + '*' * 35)
-            print('This will call the function add_person.')
+        if person_type.upper() in ['FELLOW', 'STAFF']:
+            if wants_accomodation and person_type.upper() == 'FELLOW':
+                print('\n' + '*' * 34 + '[ Success ]' + '*' * 35 + '\n')
+                fellow_with_living = dojo_instance.add_person(
+                    first_name, last_name, person_type, wants_accomodation)
+                print('\t' + fellow_with_living[0])
+                print('\t' + fellow_with_living[1])
+                incase_allocated = fellow_with_living[2]
+                if incase_allocated != 0:
+                    print('\t' + incase_allocated)
+                else:
+                    pass
+            elif wants_accomodation and person_type.upper() == 'STAFF':
+                print('\n' + '*' * 35 + '[ ERROR! ]' + '*' * 35 + '\n')
+                print(
+                    '\tOOPSIE! Accomodation is available to Fellows only.')
+            else:
+                print('\n' + '*' * 34 + '[ Success ]' + '*' * 35 + '\n')
+                staff_details = dojo_instance.add_person(
+                    first_name, last_name, person_type)
+                print('\t' + staff_details[0])
+                if staff_details[1] != 0:
+                    print('\t' + staff_details[1])
+                else:
+                    pass
+
         else:
-            print('\n' + '*' * 35 + '[ ERROR! ]' + '*' * 35)
+            print('\n' + '*' * 35 + '[ ERROR! ]' + '*' * 35 + '\n')
             print(
-                'At the moment, we\'re working with either staff or fellows.\nPlease input a valid person_type.')
-        if wants_accomodation and person_type.upper() == 'FELLOW':
-            pass
-        elif wants_accomodation and person_type.upper() == 'STAFF':
-            print('\n' + '*' * 35 + '[ ERROR! ]' + '*' * 35)
-            print(
-                'OOPSIE! Accomodation is available to Fellows only.')
-        print('\n' + '*' * 80)
+                '\tAt the moment, we\'re working with either staff or fellows.\nPlease input a valid person_type.')
+        print('\n' + '*' * 80 + '\n')
 
     @docopt_cmd
     def do_create_room(self, args):
@@ -88,17 +109,17 @@ class MyInteractive (cmd.Cmd):
 
         room_type = args['<room_type>']
         if room_type.upper() == 'LIVINGSPACE' or room_type.upper() == 'OFFICE':
-            print('\n' + '*' * 34 + '[ Success ]' + '*' * 35)
+            print('\n' + '*' * 34 + '[ Success ]' + '*' * 35 + '\n')
             for item in args['<room_name>']:
-                    room_name = item
-                    room_created = dojo_instance.create_room(
-                        room_name, room_type)
-                    print('\t' + room_created)
+                room_name = item
+                room_created = dojo_instance.create_room(
+                    room_name, room_type)
+                print('\t' + room_created)
         else:
-                print('\n' + '*' * 35 + '[ ERROR! ]' + '*' * 35)
-                print('<room_type> type must either be Office or LivingSpace')
+            print('\n' + '*' * 35 + '[ ERROR! ]' + '*' * 35 + '\n')
+            print('\t<room_type> type must either be Office or LivingSpace')
 
-        print('\n' + '*' * 80)
+        print('\n' + '*' * 80 + '\n')
 
     def do_quit(self, args):
         """Quits out of Interactive Mode."""
