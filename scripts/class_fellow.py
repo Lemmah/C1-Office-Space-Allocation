@@ -1,5 +1,8 @@
-from scripts.class_person import Person
-import random
+#!/usr/bin/env python
+# encoding: utf-8
+
+from script.class_person import Person
+
 '''
 
 This fellow class inherits from Person.
@@ -12,24 +15,13 @@ since staff should not have living spaces.
 class Fellow(Person):
     def __init__(
             self, first_name,
-            second_name, person_type,
-            living_space=None):
+            second_name, person_type):
 
         super().__init__(first_name, second_name, person_type)
         self.first_name = first_name
         self.second_name = second_name
         self.person_type = person_type
-        self.living_space = living_space
-        self.availble_living_spaces = ['Python', 'Ruby', 'JavaScript', 'Java']
-        self.allocated_living_space = random.choice(
-            self.availble_living_spaces)
-        self.allocations_dict = {}
 
-    def allocate_living_space(self):
-        if self.living_space is None:
-            pass
-        else:
-            return '{} has been allocated the livingplace {}.'.format(
-                self.first_name, self.allocated_living_space), '{} {}'.format(
-                self.first_name, self.second_name), self.allocated_living_space
-
+    def fellow_details(self):
+        self.full_name = self.full_name()
+        return self.full_name

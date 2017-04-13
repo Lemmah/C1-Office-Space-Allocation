@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from script.class_room import Room
+from scripts.class_room import Room
+
 '''
 
 This class inherits from the class Room.
