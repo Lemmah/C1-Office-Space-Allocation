@@ -2,24 +2,19 @@
 # encoding: utf-8
 
 '''
-
 This is the master of this game. The control class so to call it.
 It calls instances of other classes and
 mainly interacts with the docopt user interface.
-
 '''
 import random
 from scripts.class_room import Room
 from scripts.class_office import Office
 from scripts.class_living_space import LivingSpace
 from scripts.class_person import Person
-from scripts.class_fellow import Fellow
-
 
 
 class Dojo:
     def __init__(self):
-        self.allocations = {}
         self.all_rooms = []
         self.office_rooms = []
         self.living_places = []
@@ -29,29 +24,23 @@ class Dojo:
         self.staff = []
         self.allocated_persons = []
         self.unallocated_persons = []
-        self.office_members = {}
+        self.office_members = {}  # testing value
         self.room_members = {}
-
-
-    def room_allocations(self):
-        fellow = Fellow('James', 'Lemayian', 'Fellow',
-                        'Blue').allocate_living_space()
-        # Appending values to the dictionary
-        self.allocations['{}'.format(fellow[2])] = fellow[1]
-        return self.allocations
 
     def create_room(self, room_name, room_type):
         if room_name not in self.all_rooms:
             if room_type.lower() == 'office':
                 self.all_rooms.append(room_name)
-                self.office_rooms.append(room_name)
+                self.living_places.append(room_name)
+                self.room_members['None'] = room_name
                 room_instance = Office(room_type, room_name).room_details()
                 return 'An office called {} has been successfully created.'.format(room_instance[1])
             else:
+                self.all_rooms.append(room_name)
+                self.office_rooms.append(room_name)
+                self.office_members['None'] = room_name
                 room_instance = LivingSpace(
                     room_type, room_name).room_details()
-                self.living_places.append(room_name)
-                self.all_rooms.append(room_name)
                 return 'A livingspace called {} has been successfully created.'.format(room_instance[1])
         else:
             return 'The room {} already exists.'.format(room_name)
@@ -105,7 +94,8 @@ class Dojo:
                         if len(self.unfilled_rooms) > 0:
                             selected_room = random.choice(self.unfilled_rooms)
                             self.office_members[person_name] = selected_room
-                            office_status = '{} has been allocated the office {}.'.format(first_name, selected_room)
+                            office_status = '{} has been allocated the office {}.'.format(
+                                first_name, selected_room)
                         else:
                             roffice_status = 'Could not allocate office. All the rooms are currently full.'
                     else:
@@ -156,7 +146,19 @@ class Dojo:
             return '{} is already part of the Andela family.'.format(person_name), 0
 
     def check_capacity_full(self, room_name):
-        pass
+        for room in self.all_rooms:
+            ## TODO: implement this class to
+            #reduce redundancy of code in adding person.
+            if room_name in self.office_rooms:
+                room_type = 'office'
+                room_occurence = [room_name for room_name in self.office_members]
+            elif room_type in self.living_places:
+                room_type = 'livingplace'
+                room_occurence = [room_name for room_name in self.room_members]
+            else:
+                pass
+            room_capacity = Room(room, room_type).room_details()[2]
+
 
     def office_occupants(self, room_name):
         pass
