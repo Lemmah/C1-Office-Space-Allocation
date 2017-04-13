@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web)
 # Office Space Allocator
 ### Intro
 Office Room Allocator is an app that is designed to allocate rooms at one of Andela's facilities called the Dojo. When a new Fellow joins Andela they are assigned an office space and an optional living space if they choose to opt in. When a new Staff joins they are assigned an office space only. This console application digitizes and randomizes a room allocation system for one of Andela Kenya’s facilities called The Dojo.
