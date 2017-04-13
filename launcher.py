@@ -5,6 +5,13 @@ This commandline interface uses docopt with the built in cmd module.
 Usage:
     mra add_person <first_name> <last_name> <person_type> [<wants_accomodation>]
     mra create_room <room_type> <room_name>...
+    mra print_room <room_name>
+    mra reallocate_person <name> <new_room>
+    mra load_people <filename>
+    mra print_allocations [<filename>]
+    mra print_unallocated [<filename>]
+    mra load_state [<filename>]
+    mra save_state [<db_name>]
     mra (-i | --interactive)
     mra (-h | --help)
 Options:
@@ -20,6 +27,7 @@ from docopt import docopt, DocoptExit
 from scripts.class_dojo import Dojo
 
 dojo_instance = Dojo()
+
 
 
 def docopt_cmd(func):

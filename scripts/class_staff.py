@@ -10,6 +10,7 @@ It can get a Staff's full names.
 '''
 
 
+
 class Staff(Person):
     def __init__(
             self, first_name,
