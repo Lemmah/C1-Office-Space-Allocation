@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from script.class_person import Person
+from scripts.class_person import Person
+
 '''
 
 This fellow class inherits from Person.
