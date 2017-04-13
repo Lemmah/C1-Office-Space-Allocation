@@ -39,6 +39,8 @@ class Dojo:
             else:
                 room_instance = LivingSpace(
                     room_type, room_name).room_details()
+                self.living_places.append(room_name)
+                self.all_rooms.append(room_name)
                 return 'A livingspace called {} has been successfully created.'.format(room_instance[1])
         else:
             return 'The room {} already exists.'.format(room_name)
