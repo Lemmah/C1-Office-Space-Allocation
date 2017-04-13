@@ -68,12 +68,12 @@ class Dojo:
                     if len(self.unfilled_rooms) > 0:
                         selected_room = random.choice(self.unfilled_rooms)
                         self.office_members[person_name] = selected_room
-                        return 'Staff {} has been successfullly added.'.format(person_name), '{} has been allocated the office {}.'.format(
-                            first_name, selected_room)
+                        return ['Staff {} has been successfullly added.'.format(person_name), '{} has been allocated the office {}.'.format(
+                                                    first_name, selected_room)]
                     else:
-                        return 'Staff {} has been successfullly added.'.format(person_name), 'Could not allocate. All the rooms are currently full.'
+                        return ['Staff {} has been successfullly added.'.format(person_name), 'Could not allocate. All the rooms are currently full.']
                 else:
-                    return 'Staff {} has been successfullly added.'.format(person_name), 'You cannot allocate rooms before you create them.'
+                    return ['Staff {} has been successfullly added.'.format(person_name), 'You cannot allocate rooms before you create them.']
 
             else:
                 self.fellows.append(person_name)
@@ -115,11 +115,11 @@ class Dojo:
                         if len(self.unfilled_rooms) > 0:
                             selected_room = random.choice(self.unfilled_rooms)
                             self.room_members[person_name] = selected_room
-                            return 'Fellow {} has been successfullly added.'.format(person_name), office_status, '{} has been allocated the livingspace {}.'.format(first_name, selected_room)
+                            return ['Fellow {} has been successfullly added.'.format(person_name), office_status, '{} has been allocated the livingspace {}.'.format(first_name, selected_room)]
                         else:
-                            return 'Fellow {} has been successfullly added.'.format(person_name), office_status, 'Could not allocate livingspace. All the rooms are currently full.'
+                            return ['Fellow {} has been successfullly added.'.format(person_name), office_status, 'Could not allocate livingspace. All the rooms are currently full.']
                     else:
-                        return 'Fellow {} has been successfullly added.'.format(person_name), office_status, 'You cannot allocate livingspace before you create one.'
+                        return ['Fellow {} has been successfullly added.'.format(person_name), office_status, 'You cannot allocate livingspace before you create one.']
                 else:
                     if len(self.office_rooms) > 0:
                         allocated_rooms = self.office_members
@@ -136,14 +136,14 @@ class Dojo:
                         if len(self.unfilled_rooms) > 0:
                             selected_room = random.choice(self.unfilled_rooms)
                             self.office_members[person_name] = selected_room
-                            return 'Fellow {} has been successfullly added.'.format(person_name), '{} has been allocated the office {}.'.format(
-                                first_name, selected_room)
+                            return ['Fellow {} has been successfullly added.'.format(person_name), '{} has been allocated the office {}.'.format(
+                                                            first_name, selected_room)]
                         else:
-                            return 'Fellow {} has been successfullly added.'.format(person_name), 'Could not allocate office. All the rooms are currently full.'
+                            return ['Fellow {} has been successfullly added.'.format(person_name), 'Could not allocate office. All the rooms are currently full.']
                     else:
-                        return 'Fellow {} has been successfullly added.'.format(person_name), 'You cannot allocate office before you create one.'
+                        return ['Fellow {} has been successfullly added.'.format(person_name), 'You cannot allocate office before you create one.']
         else:
-            return '{} is already part of the Andela family.'.format(person_name), 0
+            return ['{} is already part of the Andela family.'.format(person_name), 0, 0]
 
     def check_capacity_full(self, room_name):
         for room in self.all_rooms:
@@ -165,6 +165,12 @@ class Dojo:
 
     def living_room_occupants(self, room_name):
         pass
+
+    def print_rooms(self):
+        loop_rooms = 1
+        for room in self.all_rooms:
+            if loop_rooms <= len(self.all_rooms):
+                return room
 
     def reallocate_person(self, person_name, new_room_name):
         pass
