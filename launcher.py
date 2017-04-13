@@ -3,6 +3,7 @@ This commandline interface uses docopt with the built in cmd module.
 Usage:
     mra add_person <first_name> <last_name> <person_type> [<wants_accomodation>]
     mra create_room <room_type> <room_name>...
+    mra print_rooms
     mra (-i | --interactive)
     mra (-h | --help)
 Options:
@@ -74,7 +75,7 @@ class MyInteractive (cmd.Cmd):
                 fellow_with_living = dojo_instance.add_person(
                     first_name, last_name, person_type, wants_accomodation)
                 print('\t' + fellow_with_living[0])
-                print('\t' + fellow_with_living[1])
+                print('\t' + str(fellow_with_living[1]))
                 incase_allocated = fellow_with_living[2]
                 if incase_allocated != 0:
                     print('\t' + incase_allocated)
@@ -90,7 +91,7 @@ class MyInteractive (cmd.Cmd):
                     first_name, last_name, person_type)
                 print('\t' + staff_details[0])
                 if staff_details[1] != 0:
-                    print('\t' + staff_details[1])
+                    print('\t' + str(staff_details[1]))
                 else:
                     pass
 
