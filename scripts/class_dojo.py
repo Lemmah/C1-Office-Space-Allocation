@@ -20,13 +20,6 @@ from scripts.class_fellow import Fellow
 class Dojo:
     def __init__(self):
         self.allocations = {}
-
-    def room_allocations(self):
-        fellow = Fellow('James', 'Lemayian', 'Fellow',
-                        'Blue').allocate_living_space()
-        # Appending values to the dictionary
-        self.allocations['{}'.format(fellow[2])] = fellow[1]
-        return self.allocations
         self.all_rooms = []
         self.office_rooms = []
         self.living_places = []
@@ -38,6 +31,14 @@ class Dojo:
         self.unallocated_persons = []
         self.office_members = {}
         self.room_members = {}
+
+
+    def room_allocations(self):
+        fellow = Fellow('James', 'Lemayian', 'Fellow',
+                        'Blue').allocate_living_space()
+        # Appending values to the dictionary
+        self.allocations['{}'.format(fellow[2])] = fellow[1]
+        return self.allocations
 
     def create_room(self, room_name, room_type):
         if room_name not in self.all_rooms:
